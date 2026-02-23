@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - AI Оқу кабинеті</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Менің курстарым</h3>
+            <ul>
+                <li><a href="dashboard.html" class="active">Нейрондық желілер</a></li>
+                <li><a href="data-science.html">Data Science негіздері</a></li>
+                <li><a href="nlp.html">Natural Language Processing</a></li>
+                <hr>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="quiz.html">Тест тапсыру</a></li>
+            </ul>
+        </aside>
+
+        <main class="editor-section">
+            <div class="task-info" style="border-left: 5px solid #de6bcb; padding-left: 15px;">
+                <h2 style="color: #de6bcb;">🧠 Тапсырма №1: Нейронды баптау</h2>
+                <p>Төмендегі терезеге <code>print("Hello AI")</code> деп жазып, 'Run' батырмасын басыңыз.</p>
+            </div>
+            
+            <div class="code-editor">
+                <textarea id="pythonCode" placeholder="Кодты осында жазыңыз..."></textarea>
+                <div class="controls">
+                    <button id="runBtn" class="btn-run" style="background-color: #de6bcb;">Кодты іске қосу ▶</button>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <h4>Терминал (Output):</h4>
+                <pre id="output">Күтілуде...</pre>
+            </div>
+
+            <div id="nextStep" style="display: none; margin-top: 20px;">
+                <p style="color: #28a745; font-weight: bold;">🎉 Керемет! Келесі деңгейге өтуге дайынсыз.</p>
+                <a href="data-science.html" class="btn-run" style="text-decoration: none; display: inline-block; background-color: #4e73df;">Келесі курсқа өту ➔</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('runBtn').addEventListener('click', function() {
+            const code = document.getElementById('pythonCode').value.trim();
+            const output = document.getElementById('output');
+            const nextStep = document.getElementById('nextStep');
+            
+            // Студенттің жазған кодын тексеру
+            if(code === 'print("Hello AI")') {
+                output.innerText = "> Hello AI\n> Статус: Орындалды! ✅\n> Нейрондық желі іске қосылды.";
+                output.style.color = "#0f0"; // Жасыл түс
+                nextStep.style.display = "block"; // Келесі курс батырмасын көрсету
+            } else {
+                output.innerText = "> Қате: Кодты дұрыс жазыңыз.\n> Көмек: print(\"Hello AI\") деп жазыңыз.";
+                output.style.color = "#ff4d4d"; // Қызыл түс
+                nextStep.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Science - AI Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h3>Менің курстарым</h3>
+            <ul>
+                <li><a href="dashboard.html">Нейрондық желілер</a></li>
+                <li><a href="data-science.html" class="active">Data Science негіздері</a></li>
+                <li><a href="nlp.html">Natural Language Processing</a></li>
+                <hr>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="quiz.html">Тест тапсыру</a></li>
+            </ul>
+        </aside>
+
+        <main class="editor-section">
+            <div class="task-info" style="border-left: 5px solid #4e73df; padding-left: 15px;">
+                <h2 style="color: #4e73df;">📊 Тапсырма №2: Деректер массиві</h2>
+                <p>Pandas кітапханасын импорттау үшін <code>import pandas as pd</code> деп жазып, 'Run' басыңыз.</p>
+            </div>
+            
+            <div class="code-editor">
+                <textarea id="pythonCode" placeholder="import pandas..."></textarea>
+                <div class="controls">
+                    <button id="runBtn" class="btn-run" style="background-color: #4e73df;">Кодты іске қосу ▶</button>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <h4>Терминал (Output):</h4>
+                <pre id="output">Деректерді өңдеуге дайын...</pre>
+            </div>
+
+            <div id="nextStep" style="display: none; margin-top: 20px;">
+                <p style="color: #28a745; font-weight: bold;">✅ Pandas жүктелді! Енді мәтіндік анализге көшеміз.</p>
+                <a href="nlp.html" class="btn-run" style="text-decoration: none; display: inline-block; background-color: #1cc88a;">Келесі курсқа өту ➔</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('runBtn').addEventListener('click', function() {
+            const code = document.getElementById('pythonCode').value.trim();
+            const output = document.getElementById('output');
+            const nextStep = document.getElementById('nextStep');
+            
+            if(code === 'import pandas as pd') {
+                output.innerText = "> Pandas library imported successfully.\n> DataFrame initialized.\n> Статус: Сәтті! ✅";
+                output.style.color = "#0f0";
+                nextStep.style.display = "block";
+            } else {
+                output.innerText = "> Қате: Кодты тексеріңіз.\n> Көмек: import pandas as pd";
+                output.style.color = "#ff4d4d";
+                nextStep.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

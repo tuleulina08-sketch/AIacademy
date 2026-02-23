@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менің Профилім | AI Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="profile-body">
+    <header class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🤖</span> AI Academy
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Басты бет</a></li>
+                <li><a href="courses.html">Курстар</a></li>
+                <li><a href="profile.html" class="active">Профиль</a></li>
+                <li><a href="login.html" class="nav-btn-login">Шығу</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="profile-wrapper">
+        <aside class="profile-card animate-in">
+            <div class="profile-header">
+                <div class="avatar-ring">
+                    <div class="avatar">👨‍💻</div>
+                </div>
+                <h2>Береке Студент</h2>
+                <span class="rank-badge">Junior AI Researcher</span>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-num">5</span>
+                    <span class="stat-label">Курс</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-num">120</span>
+                    <span class="stat-label">Ұпай</span>
+                </div>
+            </div>
+            
+            <button id="editBtn" class="btn-edit">Профильді өңдеу</button>
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <h3>Профильді жаңарту</h3>
+                    <input type="text" id="newName" placeholder="Жаңа есімді жазыңыз">
+                    <div class="modal-buttons">
+                        <button id="saveBtn">Сақтау</button>
+            <button id="closeBtn">Жабу</button>
+        </div>
+    </div>
+</div>
+        </aside>
+
+        <main class="profile-main animate-in" style="animation-delay: 0.2s;">
+            <section class="glass-section progress-container">
+    <h3>🚀 Оқу прогресі</h3>
+    
+    <div class="progress-card">
+        <div class="progress-header">
+            <div class="course-name">
+                <span class="icon">🤖</span>
+                <span>Machine Learning</span>
+            </div>
+            <span class="percentage">75%</span>
+        </div>
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar-fill green-gradient" style="width: 75%;">
+                <div class="glow"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-card">
+        <div class="progress-header">
+            <div class="course-name">
+                <span class="icon">🧠</span>
+                <span>Neural Networks</span>
+            </div>
+            <span class="percentage">100%</span>
+        </div>
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar-fill purple-gradient" style="width: 100%;">
+                <div class="glow"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <section class="glass-section">
+                <h3>🏆 Менің сертификаттарым</h3>
+                <div class="certificates-grid">
+                    <a href="certificate.html" class="cert-item">
+                        <span class="cert-icon">📜</span>
+                        <p>Neural Networks</p>
+                    </a>
+                    <div class="cert-item locked">
+                        <span class="cert-icon">🔒</span>
+                        <p>NLP Expert</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+    window.onload = function() {
+        // Жадтан есімді алу
+        const savedName = localStorage.getItem('userName');
+        
+        // Егер есім сақталған болса, оны экранға шығару
+        if (savedName) {
+            document.querySelector('.profile-card h2').innerText = savedName;
+        }
+
+        // Сертификаттың статусын тексеру
+        const isPassed = localStorage.getItem('coursePassed');
+        if (isPassed === 'true') {
+            document.querySelector('.cert-item.locked').classList.remove('locked');
+            document.querySelector('.cert-item.locked p').innerText = "Сертификат ашық ✅";
+        }
+    }
+</script>
+<script>
+    const modal = document.getElementById('editModal');
+    const editBtn = document.getElementById('editBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const nameDisplay = document.querySelector('.profile-card h2'); // Ару деген жазу тұрған жер
+
+    // 1. Терезені ашу
+    editBtn.onclick = function() {
+        modal.style.display = "flex";
+    }
+
+    // 2. Терезені жабу
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // 3. Атын өзгерту және сақтау
+    saveBtn.onclick = function() {
+        const newName = document.getElementById('newName').value;
+        if(newName) {
+            // Экрандағы атын ауыстыру
+            nameDisplay.innerText = newName;
+            // Жадқа (LocalStorage) сақтау
+            localStorage.setItem('userName', newName);
+            // Терезені жабу
+            modal.style.display = "none";
+        }
+    }
+
+    // Терезеден тыс жерді басқанда жабу
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<script src="script.js"></script>
+</body>
+</html>

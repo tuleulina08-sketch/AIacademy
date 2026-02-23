@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кіру | AI Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-wrapper">
+        <div class="auth-card shadow-lg">
+            <div class="auth-header">
+                <h2>👋 Қайта қош келдіңіз!</h2>
+                <p>Жүйеге кіру үшін деректеріңізді енгізіңіз</p>
+            </div>
+            
+            <form id="loginForm" class="auth-form">
+                <div class="input-field">
+                    <label>Электронды пошта</label>
+                    <input type="email" id="loginEmail" placeholder="example@ai.kz" required>
+                </div>
+                
+                <div class="input-field">
+                    <label>Құпия сөз</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-primary-auth">Кіру</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Тіркелмегенсіз бе? <a href="signup.html">Тіркелу</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 1. Енгізілген email-ды аламыз
+            const emailValue = document.getElementById('loginEmail').value;
+            
+            // 2. Егер жадта арнайы есім сақталмаған болса (signup арқылы),
+            // онда поштаның '@' таңбасына дейінгі бөлігін есім ретінде қолданамыз
+            if (!localStorage.getItem('userName')) {
+                const autoName = emailValue.split('@')[0]; // "user@mail.com" -> "user"
+                localStorage.setItem('userName', autoName);
+            }
+
+            // 3. Профиль бетіне бағыттау
+            window.location.href = 'profile.html'; 
+        });
+    </script>
+</body>
+</html>

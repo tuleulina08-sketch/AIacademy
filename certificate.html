@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сертификат | AI Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="cert-body">
+    <div class="cert-container shadow-lg" id="certificate">
+        <div class="cert-border-outer"></div>
+        <div class="cert-border-inner"></div>
+
+        <div class="cert-content">
+            <div class="cert-header">
+                <div class="cert-logo">AI ACADEMY</div>
+                <h1>СЕРТИФИКАТ</h1>
+                <p class="cert-subtitle">ОҚУДЫ СӘТТІ АЯҚТАҒАНЫ ТУРАЛЫ</p>
+            </div>
+
+            <div class="cert-body-text">
+                <p>Осы құжат білім алушы:</p>
+                <h2 class="student-name" id="displayUserName">береке</h2>
+                <p>берілді. Ол <strong>"AI & Data Science: Толық курс"</strong> атты бағдарламаны <br> 
+                сәтті аяқтап, өзінің кәсіби біліктілігін дәлелдеді.</p>
+            </div>
+
+            <div class="cert-footer">
+                <div class="footer-item">
+                    <p class="date" id="currentDate">17.02.2026</p>
+                    <div class="line"></div>
+                    <span>Күні</span>
+                </div>
+                
+                <div class="cert-seal">
+                    <div class="seal-inner">AI</div>
+                </div>
+
+                <div class="footer-item">
+                    <p class="signature">Academy AI</p>
+                    <div class="line"></div>
+                    <span>Директордың қолы</span>
+                </div>
+            </div>
+            
+            <div class="cert-id">ID: Astana-2026-0894</div>
+        </div>
+    </div>
+
+    <div class="cert-actions">
+        <button onclick="window.print()" class="btn-print">Сертификатты жүктеу (PDF) 📥</button>
+        <a href="profile.html" class="btn-back">Профильге қайту</a>
+    </div>
+
+    <script>
+        // Бүгінгі күнді қою
+        document.getElementById('currentDate').innerText = new Date().toLocaleDateString();
+        
+        // Пайдаланушы атын жергілікті жадтан алу (егер тіркелген болса)
+        const savedName = localStorage.getItem('userName');
+        if(savedName) {
+            document.getElementById('displayUserName').innerText = savedName;
+        }
+    </script>
+</body>
+</html>

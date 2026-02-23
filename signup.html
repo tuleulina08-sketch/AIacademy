@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тіркелу | AI Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-wrapper">
+        <div class="auth-card shadow-lg">
+            <div class="auth-header">
+                <h2>🚀 Қош келдіңіз!</h2>
+                <p>AI әлеміне саяхатыңызды бастаңыз</p>
+            </div>
+            
+            <form id="signupForm" class="auth-form">
+                <div class="input-field">
+                    <label>Толық аты-жөніңіз</label>
+                    <input type="text" id="userNameInput" placeholder="Асқар Аманжол" required>
+                </div>
+                
+                <div class="input-field">
+                    <label>Электронды пошта</label>
+                    <input type="email" placeholder="example@ai.kz" required>
+                </div>
+                
+                <div class="input-field">
+                    <label>Құпия сөз</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-primary-auth">Тіркелу</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Тіркелгенсіз бе? <a href="login.html">Кіру</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Беттің қайта жүктелуін тоқтатамыз
+
+            // 1. Енгізілген есімді аламыз
+            const fullName = document.getElementById('userNameInput').value;
+
+            // 2. Есімді браузер жадына сақтаймыз
+            localStorage.setItem('userName', fullName);
+
+            // Тексеру үшін (Консольге шығару)
+            console.log("Сақталған есім:", localStorage.getItem('userName'));
+
+            // 3. Сәтті тіркелген соң Профиль бетіне жібереміз
+            window.location.href = 'profile.html'; 
+        });
+    </script>
+</body>
+</html>

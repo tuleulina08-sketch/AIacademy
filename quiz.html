@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Тест | Біліміңді тексер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="quiz-body">
+    <header class="main-nav">
+        <div class="nav-container">
+            <div class="logo"><span class="logo-icon">🤖</span> AI Academy</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Басты бет</a></li>
+                <li><a href="courses.html">Курстар</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="quiz-wrapper">
+        <div class="quiz-info">
+            <div class="timer">⏳ Уақыт: <span id="time">15:00</span></div>
+            <div class="q-counter">Сұрақ: <span id="current-q">1</span> / 20</div>
+        </div>
+
+        <div id="quiz-card" class="glass-section quiz-card">
+            <div class="progress-line">
+                <div id="bar" class="fill purple-gradient" style="width: 5%;"></div>
+            </div>
+            <h2 id="question-text">Сұрақ жүктелуде...</h2>
+            <div id="options-container" class="options-grid">
+                </div>
+            <div class="quiz-footer">
+                <button id="next-btn" class="btn-main" disabled>Келесі сұрақ</button>
+            </div>
+        </div>
+
+        <div id="result-card" class="glass-section result-card" style="display: none;">
+            <div class="result-icon">🏆</div>
+            <h2>Тест аяқталды!</h2>
+            <p id="score-text">Сіздің нәтижеңіз: 0 / 20</p>
+            <div id="cert-msg" class="cert-status"></div>
+            <div class="result-buttons">
+                <button onclick="location.reload()" class="btn-outline">Қайта тапсыру</button>
+                <button onclick="window.location.href='profile.html'" class="btn-main">Профильге өту</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="quiz-logic.js"></script>
+</body>
+</html>

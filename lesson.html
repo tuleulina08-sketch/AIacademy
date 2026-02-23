@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оқу платформасы | AI Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="lesson-body">
+    <header class="main-nav">
+        <div class="nav-container">
+            <div class="logo"><span class="logo-icon">🤖</span> AI Academy</div>
+            <ul class="nav-links">
+                <li><a href="courses.html">← Курстарға қайту</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="lesson-wrapper">
+        <aside class="lesson-sidebar glass-section">
+            <h3 id="course-name-display">Курс мазмұны</h3>
+            <ul class="lesson-list" id="lesson-list"></ul>
+            <div class="sidebar-footer">
+                <a href="quiz.html" class="btn-quiz" id="quiz-link">📝 Курс тесті (20 сұрақ)</a>
+            </div>
+        </aside>
+
+        <main class="lesson-content glass-section">
+    <div id="content-area">
+        <h2 id="lesson-title">Жүктелуде...</h2>
+        <div class="divider"></div>
+        <div id="lesson-full-text" class="lesson-reading-area">
+            Сабақ мазмұны осы жерде пайда болады...
+        </div>
+    </div>
+    <div class="content-nav">
+        <button class="btn-outline" onclick="prevLesson()">← Алдыңғы</button>
+        <button class="btn-main" onclick="nextLesson()">Келесі сабақ →</button>
+    </div>
+</main>
+    </div>
+
+    <script src="lesson-logic.js"></script>
+</body>
+</html>
